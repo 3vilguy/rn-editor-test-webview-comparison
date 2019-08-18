@@ -1,30 +1,32 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { WebView } from 'react-native-webview';
 
-class HomeScreen extends React.Component {
+class Screen1 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-      </View>
+      <WebView
+        source={{ uri: 'http://3vil.eu/Notesmaster/trumbowyg-jquery/' }}
+        style={{ marginTop: 20 }}
+      />
     );
   }
 }
 
-class SettingsScreen extends React.Component {
+class Screen2 extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
+      <WebView
+        source={{ uri: 'http://3vil.eu/Notesmaster/ckeditor-4-full-all/index.html' }}
+        style={{ marginTop: 20 }}
+      />
     );
   }
 }
 
 const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
-  Settings: SettingsScreen,
+  Trumbowyg: Screen1,
+  CKEditor: Screen2,
 });
 
 export default createAppContainer(TabNavigator);
